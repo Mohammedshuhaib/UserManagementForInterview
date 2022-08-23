@@ -24,7 +24,7 @@ function Signup() {
                 data
             }
             })
-            navigate('/home')
+            navigate('/')
         } catch(err) {
             if(err.response.status === 409) {
               setErr('Email address already exist')

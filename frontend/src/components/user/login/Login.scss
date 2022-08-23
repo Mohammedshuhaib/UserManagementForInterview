@@ -39,7 +39,7 @@
 
             .passwordField {
                 width: 100%;
-                margin: 20px;
+                margin: 0px 20px;
 
                 .inputField {
                     width: 300px;
@@ -53,20 +53,19 @@
                 
             }
 
-            .errorContianer {
+            .errorContainer {
                 display: flex;
                 justify-content: center;
                 width: 100%;
 
                 p{
                     color: red;
-                    
+                    font-size: 15px;
                 }
 
             }
-
             .button {
-                margin: 20px;
+                
                 display: flex;
                 justify-content: center;
             }
