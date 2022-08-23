@@ -14,7 +14,7 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions))
-app.options('*', cors({ origin: true, credentials: true }))
+app.options('http://localhost:3000', cors({ origin: true, credentials: true }))
 app.use(cookieParser())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))

@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import './AdminLogin.scss'
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
@@ -14,6 +14,11 @@ function AdminLogin() {
   });
   let navigate = useNavigate();
 
+  useEffect(() => {
+    if(localStorage.getItem('Adminlogin')){
+      navigate('/admin/home')
+    }
+  },[])
   const submitForm = async(data) => {
     try{
       await axios({

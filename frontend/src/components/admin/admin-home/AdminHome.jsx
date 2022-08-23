@@ -1,8 +1,13 @@
 import React from 'react'
 import "./AdminHome.scss"
+import UserDetails from './user-details/UserDetails'
+import UserList from './user-list/UserList'
 function AdminHome() {
   return (
-    <div>AdminHome</div>
+    <div className='homeContainer'>
+      <UserList/>
+      <UserDetails/>
+    </div>
   )
 }
 

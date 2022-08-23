@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 const Admin = require("../../models/adminModel");
+const User = require('../../models/userModel')
 const expressAsyncHandler = require("express-async-handler");
 const { generateAccessToken } = require("./Authorization");
 const { createError } = require("../../createError");
@@ -32,6 +33,15 @@ module.exports = {
     } else {
       return next(createError(404, "Data not getting"));
     }
+  }),
+
+  getData: expressAsyncHandler(async (req, res, next) => {
+   let data =await User.find()
+   if(data) {
+    res.status(200, data)
+   }else {
+    return next(createError(404, 'data not found'))
+   }
   }),
 
   Logout:expressAsyncHandler(async (req, res, next) => {

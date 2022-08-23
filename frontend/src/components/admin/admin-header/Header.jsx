@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Header.scss'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -11,6 +11,14 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 function Header() {
     let navigate = useNavigate()
+
+    useEffect(() => {
+      if(localStorage.getItem('Adminlogin')){
+        navigate('/admin/home')
+      }else {
+        navigate('/admin')
+      }
+    },[])
     const logout = async() => {
       try {
      let response = await axios({

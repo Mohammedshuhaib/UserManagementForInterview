@@ -1,0 +1,36 @@
+.listContainer {
+    flex: 8;
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.47);
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+
+    .cellAction {
+        display: flex;
+
+        .updateButton{
+            padding: 20px;
+            Button {
+                background-color: green;
+                color: white;
+
+                &:hover {
+                    background-color: rgb(9, 82, 9);
+                }
+            }
+        }
+
+        .deleteButton {
+            padding: 20px;
+            Button {
+                background: red;
+                color: white;
+
+                &:hover {
+                    background: rgb(145, 6, 6);
+                }
+            }
+        }
+    }
+}
