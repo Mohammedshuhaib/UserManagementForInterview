@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from '../../../Validationshema/adminSchema'
+import axios from 'axios'
 function AdminLogin() {
   const [err, setErr] = useState('')
   const { register, handleSubmit, formState } = useForm({
@@ -13,8 +14,26 @@ function AdminLogin() {
   });
   let navigate = useNavigate();
 
-  const submitForm = (data) => {
-    console.log(data)
+  const submitForm = async(data) => {
+    try{
+      await axios({
+        url:'/admin/login',
+        method:'post',
+        data:{
+          data
+        }
+      })
+      navigate('/admin/home')
+    }catch(err) {
+      console.log(err)
+      if(err.response.status === 401) {
+        setErr('Password doesnt match')
+      }else if(err.response.status === 404) {
+        setErr('Invalid credentials')
+      } else {
+        setErr('Something went wrong')
+      }
+    }
   }
   return (
     <div className="loginContainer">
