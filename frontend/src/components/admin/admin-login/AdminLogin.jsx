@@ -22,7 +22,8 @@ function AdminLogin() {
         data:{
           data
         }
-      })
+      },{withCredentials:true})
+      localStorage.setItem('Adminlogin',true)
       navigate('/admin/home')
     }catch(err) {
       console.log(err)
