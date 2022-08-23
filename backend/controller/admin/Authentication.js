@@ -38,7 +38,7 @@ module.exports = {
   getData: expressAsyncHandler(async (req, res, next) => {
    let data =await User.find()
    if(data) {
-    res.status(200, data)
+    res.status(200).json(data)
    }else {
     return next(createError(404, 'data not found'))
    }
