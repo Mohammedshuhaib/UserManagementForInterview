@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import "./Signup.scss";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
@@ -8,6 +8,12 @@ import { signupSchema } from '../../../Validationshema/userSchema'
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 function Signup() {
+
+  useEffect(() => {
+    if(localStorage.getItem('Userlogin')){
+      navigate('/home')
+    }
+  },[])
   const navigate = useNavigate()
     const [err, setErr] = useState('')
     const { register, handleSubmit, formState } = useForm({
@@ -74,7 +80,7 @@ function Signup() {
                   id="standard-basic"
                   label="Password"
                   name="Password"
-                  type="text"
+                  type="password"
                   variant="standard"
                   {...register('Password')}
                 />

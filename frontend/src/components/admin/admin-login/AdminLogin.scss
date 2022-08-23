@@ -1,0 +1,80 @@
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+
+    @media (max-width:425px) {
+     .loginForm{
+        width:350px !important;
+     }       
+    }
+    .loginForm {
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.47);
+         box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+         width: 400px;
+         
+        
+
+         .loginHeader {
+            margin-left: 10px;
+            margin-top: 10px;
+
+            p{
+                font-size: 20px;
+            }
+         }
+
+         .body {
+            display: flex;
+            justify-content: center;
+
+            .emailField{
+                width: 100%;
+                margin: 20px;
+                
+
+                .inputField {
+                    width: 300px;
+                }
+                .errorMessage {
+                    color: red;
+                    font-size: 13px;
+                }
+            }
+
+            .passwordField {
+                width: 100%;
+                margin: 0px 20px;
+
+                .inputField {
+                    width: 300px;
+
+                   
+                }
+                .errorMessage {
+                    color: red;
+                    font-size: 13px;
+                }
+                
+            }
+
+            .errorContainer {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+
+                p{
+                    color: red;
+                    font-size: 15px;
+                }
+
+            }
+            .button {
+                margin-bottom: 15px;
+                display: flex;
+                justify-content: center;
+            }
+
+         }
+    }
+}

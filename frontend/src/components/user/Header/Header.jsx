@@ -28,12 +28,13 @@ function Header() {
   }
 
   useEffect(() => {
+
     if(localStorage.getItem('Userlogin')){
       navigate('/home')
     }else {
       navigate('/')
     }
-  })
+  },[])
   return (
     <Box sx={{ flexGrow: 1 }}>
     <AppBar position="static">

@@ -2,7 +2,12 @@
     display: flex;
     justify-content: center;
     margin-top: 40px;
-
+    
+    @media (max-width:425px) {
+        .loginForm{
+           width:350px !important;
+        }       
+       }
 
     .loginForm {
         -webkit-box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.47);

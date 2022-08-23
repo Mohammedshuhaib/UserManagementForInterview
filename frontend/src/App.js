@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from './pages/user/Login'
 import Signup from './pages/user/Signup'
 import Home from './pages/user/Home';
-
+import AdminLogin from './pages/admin/AdminLogin';
 function App() {
   return (
     <div className="App">
@@ -16,8 +16,8 @@ function App() {
             <Route path='/home' element={<Home/>} />
           </Route>
           <Route path="/admin">
-            {/* <Route index element={<AdminLogin/>} />
-            <Route path='/home' element={<AdminHome/>} /> */}
+            <Route index element={<AdminLogin/>} />
+            {/* <Route path='/home' element={<AdminHome/>} /> */}
           </Route>
         </Routes>
       </Router>

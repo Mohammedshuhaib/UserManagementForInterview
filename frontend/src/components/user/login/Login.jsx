@@ -18,7 +18,7 @@ function Login() {
     if(localStorage.getItem('Userlogin')){
       navigate('/home')
     }
-  })
+  },[])
 
   const submitForm = async(data) => {
     try {
@@ -72,7 +72,7 @@ function Login() {
                   label="Password"
                   variant="standard"
                   name="Password"
-                  type="text"
+                  type="password"
                   {...register('Password')}
                 />
                  <p className="errorMessage">{formState.errors.Password?.message}</p>
