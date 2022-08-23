@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import './Header.scss'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -8,23 +8,32 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import axios from 'axios';
-import { SERVER_URL } from '../../../config';
+import { useNavigate } from 'react-router-dom';
 function Header() {
-   
-
+  let navigate = useNavigate()
   const logout = async() => {
     try {
    let response = await axios({
-      url:`${SERVER_URL}/logout`,
-      method:'get'
-    })
+      url:'/logout',
+      method:'post',
+      withCredentials:true
+    },{withCredentials: true})
     if(response) {
-      localStorage.removeItem('login')
+      localStorage.removeItem('Userlogin')
+      navigate('/')
     }
     } catch(err) {
       console.log(err)
     }
   }
+
+  useEffect(() => {
+    if(localStorage.getItem('Userlogin')){
+      navigate('/home')
+    }else {
+      navigate('/')
+    }
+  })
   return (
     <Box sx={{ flexGrow: 1 }}>
     <AppBar position="static">

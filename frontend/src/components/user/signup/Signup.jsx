@@ -6,7 +6,6 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signupSchema } from '../../../Validationshema/userSchema'
 import axios from 'axios'
-import { SERVER_URL } from "../../../config";
 import { useNavigate } from "react-router-dom";
 function Signup() {
   const navigate = useNavigate()
@@ -19,7 +18,7 @@ function Signup() {
         try {
            await axios({
             method:'post',
-            url:`http://localhost:2000/register`,
+            url:'/register',
             data:{
                 data
             }
@@ -93,7 +92,7 @@ function Signup() {
 
             <div className="bottom">
               <p>
-                Already have an account <span>Please login</span>
+                Already have an account <span onClick={() => navigate('/')}>Please login</span>
               </p>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import "./Login.scss";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
@@ -14,15 +14,23 @@ function Login() {
   });
   let navigate = useNavigate();
 
+  useEffect(() => {
+    if(localStorage.getItem('Userlogin')){
+      navigate('/home')
+    }
+  })
+
   const submitForm = async(data) => {
     try {
        await axios({
         method:'post',
-        url:`http://localhost:2000/login`,
+        url:'/login',
         data:{
             data
-        }
-        })
+        },
+        withCredentials:true
+        },{withCredentials:true})
+        localStorage.setItem('Userlogin',true)
         navigate('/home')
     } catch(err) {
         if(err.response.status === 401) {
@@ -79,7 +87,7 @@ function Login() {
             <div className="bottom">
               <p>
                 Dont have an account{" "}
-                <span >Please register</span>
+                <span onClick={() => navigate('/register')} >Please register</span>
               </p>
             </div>
           </div>

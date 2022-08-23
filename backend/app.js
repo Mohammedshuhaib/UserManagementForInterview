@@ -9,7 +9,7 @@ const userRouter = require('./router/userRouter')
 const adminRouter = require('./router/adminRouter')
 
 const corsOptions = {
-  origin: '*',
+  origin: 'http://localhost:3000',
   credentials: true
 }
 

@@ -26,7 +26,7 @@ module.exports = {
     if (user) {
       const response = await bcrypt.compare(data.Password, user.Password);
       if (response) {
-        const users = { name: data.Name };
+        const users = { email: data.Email };
         const accessToken = generateAccessToken(users);
         const refreshToken = jwt.sign(users, process.env.REFRESH_TOKEN_SECRET);
         await User.updateOne({ _id: user._id }, { $set: { refreshToken } });
@@ -46,8 +46,8 @@ module.exports = {
   }),
 
   Logout:expressAsyncHandler(async (req, res, next) => {
-    let id = req.cookies.userId
-    let response = await User.updateOne({_id:userId})
-    res.status(200).json({'logout success'})
+   let id = req.cookies.userId
+    let response = await User.findByIdAndUpdate(id,{$unset:{refreshToken:""}})
+    res.status(200).json('logout success')
   })
 };
