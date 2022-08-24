@@ -1,4 +1,4 @@
-Restoka Menu app
+###Restoka Menu app
 An application user to get menu items of each tables and get user profile.
 
 Installation
