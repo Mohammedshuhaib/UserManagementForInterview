@@ -36,7 +36,7 @@ start backend server
 
 For using admin side U have to insert a email and bcrypted password to database
 
-### Exapmple
+### Example
 
 db.userData.insertOne({Email:'admin@gmail.com',Password:'$2a$10$HvN6GvbgMEUAqTMsL72Af.IG.UxBxKvpNQYfZBHz8uipq4Y22FGte'})
 
