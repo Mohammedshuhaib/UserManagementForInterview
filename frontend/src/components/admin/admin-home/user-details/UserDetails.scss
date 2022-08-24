@@ -3,4 +3,92 @@
     -webkit-box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.47);
     box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
     margin: 20px;
+
+    .header {
+        display: flex;
+        justify-content: center;
+    }
+    .formContaier {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        .nameField{
+            width: 100%;
+            margin: 20px;
+            
+
+            .inputField {
+                width: 300px;
+            }
+            .errorMessage {
+                color: red;
+                font-size: 13px;
+            }
+        }
+
+        .emailField{
+            width: 100%;
+            margin: 20px;
+            
+
+            .inputField {
+                width: 300px;
+            }
+            .errorMessage {
+                color: red;
+                font-size: 13px;
+            }
+        }
+
+        .passwordField {
+            width: 100%;
+            margin: 0px 20px;
+
+            .inputField {
+                width: 300px;
+            }
+            .errorMessage {
+                color: red;
+                font-size: 13px;
+            }
+        }
+
+        .button {
+
+            display: flex;
+            justify-content: center;
+        }
+
+        .errorContainer {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+
+            p{
+                color: red;
+                font-size: 15px;
+            }
+
+        }
+
+
+        .bottom {
+            display: flex;
+            justify-content: center;
+
+            p {
+
+
+                span {
+                    color: red;
+                    cursor: pointer;
+
+                    &:hover{
+                        color: blue;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -49,9 +49,6 @@ function UserList() {
         }
         return (
           <div className="cellAction">
-            <div className="updateButton">
-              <Button >Update</Button>
-            </div>
             <div className="deleteButton">
               <Button onClick={() => deleteUser()}>Delete</Button>
             </div>
