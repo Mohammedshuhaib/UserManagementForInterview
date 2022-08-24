@@ -5,15 +5,17 @@ import { Button } from "@mui/material";
 import axios from "axios";
 
 function UserList() {
-    const {userData, setUserData} = useState([])
-
+    const[userData, setUserData] = useState([])
+    const[refresh,setRefresh]=useState(true)
     const getUserData = async() => {
         try{
-           let response = await axios({
+           let {data} = await axios({
                 url:'/admin/getData',
                 method:'get',
             })
-            setUserData(response.data)
+          
+            setUserData(data)
+            setRefresh(!refresh)
         } catch (err) {
             console.log(err)
         }
@@ -21,25 +23,37 @@ function UserList() {
 
     useEffect(() => {
         getUserData()
-    })
+    
+       
+    },[refresh])
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
+    { field: "_id", headerName: "ID", width: 150 },
     { field: "Name", headerName: "Name", width: 150 },
-    { field: "Email", headerName: "Email", width: 200 },
+    { field: "Email", headerName: "Email", width: 250 },
   ];
   const actioncolumn = [
     {
       field: "Action",
       headerName: "Action",
-      width: 300,
-      renderCell: () => {
+      width: 250,
+      renderCell: (params) => {
+        const deleteUser = async() => {
+          try{
+            let response = await axios({
+              method:'delete',
+              url:`/admin/deleteUser?id=${params.row._id}`
+            })
+          }catch(err) {
+            console.log(err)
+          }
+        }
         return (
           <div className="cellAction">
             <div className="updateButton">
               <Button >Update</Button>
             </div>
             <div className="deleteButton">
-              <Button>Delete</Button>
+              <Button onClick={() => deleteUser()}>Delete</Button>
             </div>
           </div>
         );
@@ -47,20 +61,21 @@ function UserList() {
     },
   ];
 
-  const rows = [
-    { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
-  ];
+  
+
+
   return (
     <div className="listContainer">
       {" "}
       <div style={{ height: 400, width: "100%" }}>
-        <DataGrid
-          rows={rows}
+      { userData && <DataGrid
+          rows={userData}
           columns={columns.concat(actioncolumn)}
           pageSize={5}
+          getRowId={(row) => row._id}
           rowsPerPageOptions={[5]}
           checkboxSelection
-        />
+        /> }
       </div>
     </div>
   );

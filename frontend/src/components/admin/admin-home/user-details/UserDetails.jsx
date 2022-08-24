@@ -2,7 +2,9 @@ import React from 'react'
 import './UserDetails.scss'
 function UserDetails() {
   return (
-    <div className='detailsContainer'>UserDetails</div>
+    <div className='detailsContainer'>
+      div.
+    </div>
   )
 }
 

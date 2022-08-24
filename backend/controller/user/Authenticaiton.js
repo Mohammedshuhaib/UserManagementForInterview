@@ -10,6 +10,7 @@ dotenv.config();
 module.exports = {
   Register: expressAsyncHandler(async (req, res, next) => {
     let { data } = req.body;
+
     const user = await User.findOne({ Email: data.Email });
     if (user) {
       return next(createError(409, "Email address already exist"));

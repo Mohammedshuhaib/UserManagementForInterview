@@ -44,6 +44,12 @@ module.exports = {
    }
   }),
 
+  deleteData: expressAsyncHandler(async (req, res, next) => {
+     const {id} = req.query
+     await User.deleteOne({_id:id})
+     res.status(200).json('success')
+  }),
+
   Logout:expressAsyncHandler(async (req, res, next) => {
     let id = req.cookies.adminId
     console.log(id)
